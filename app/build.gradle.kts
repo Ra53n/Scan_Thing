@@ -1,10 +1,12 @@
-import java.util.Properties
+import com.github.triplet.gradle.androidpublisher.ReleaseStatus
 
 plugins {
     id("com.android.application")
     kotlin("android")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("maven-publish")
+    id("com.github.triplet.play") version "3.11.0"
 }
 
 android {
@@ -61,6 +63,50 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    publishing {
+        singleVariant("release") {
+            publishApk()
+        }
+    }
+}
+
+// Примерный код публикации в Google Play
+play {
+    enabled.set(false)
+    track.set("release")
+    userFraction.set(0.10)
+    defaultToAppBundles.set(true)
+    releaseStatus.set(ReleaseStatus.IN_PROGRESS)
+    serviceAccountCredentials.set(file("google-play.json"))
+}
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "ra53n.scan_thing"
+            artifactId = "app"
+            version = "1.0"
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+        repositories {
+            maven {
+                name = "publishing"
+                url = uri(layout.buildDirectory.dir("repo"))
+            }
+        }
+    }
+}
+
+tasks.register<Zip>("generateRepo") {
+    val publishTask = tasks.named(
+        "publishReleasePublicationToPublishingRepository",
+        PublishToMavenRepository::class.java
+    )
+    from(publishTask.map { it.repository.url })
+    into("release")
+    archiveFileName.set("scan_thing_release.zip")
 }
 
 dependencies {
