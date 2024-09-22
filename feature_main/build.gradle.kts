@@ -4,6 +4,7 @@ plugins {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":ui_kit"))
     implementation(project(":feature_photo"))
 
     implementation(libs.hilt)

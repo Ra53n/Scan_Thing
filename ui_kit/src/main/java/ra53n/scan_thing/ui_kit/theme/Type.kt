@@ -1,4 +1,4 @@
-package ra53n.scan_thing.ui.theme
+package ra53n.scan_thing.ui_kit.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

@@ -65,6 +65,7 @@ android {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":ui_kit"))
     implementation(project(":feature_main"))
     implementation(project(":feature_photo"))
     implementation(project(":feature_scan_photo"))

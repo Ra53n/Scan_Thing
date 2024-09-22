@@ -5,7 +5,6 @@ import android.net.Uri
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.camera.core.ImageCapture
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -19,6 +18,8 @@ import ra53n.scan_thing.core.flux.Fail
 import ra53n.scan_thing.core.flux.IComposableComponent
 import ra53n.scan_thing.core.flux.Pending
 import ra53n.scan_thing.core.flux.Success
+import ra53n.scan_thing.main.R
+import ra53n.scan_thing.ui_kit.screens.ErrorScreen
 import java.io.File
 import javax.inject.Inject
 
@@ -60,7 +61,7 @@ fun MainScreen(
         if (!permissionGranted) {
             Toast.makeText(
                 context,
-                "Permission request denied",
+                context.getString(R.string.permission_request_denied),
                 Toast.LENGTH_SHORT
             ).show()
         }
@@ -96,7 +97,9 @@ fun MainScreen(
                     )
                 }
 
-                is Fail -> {}
+                is Fail -> {
+                    ErrorScreen(showRetryButton = false)
+                }
             }
         }
     }

@@ -6,6 +6,7 @@ plugins {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":ui_kit"))
 
     implementation(libs.androidx.core.ktx)
 

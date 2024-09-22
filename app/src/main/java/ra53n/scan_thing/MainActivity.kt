@@ -19,7 +19,7 @@ import ra53n.feature_main.presentation.MainScreenComponent
 import ra53n.feature_main.presentation.MainViewModel
 import ra53n.scan_thing.feature_scan_photo.presentation.ScanPhotoScreenComponent
 import ra53n.scan_thing.feature_scan_photo.presentation.ScanPhotoViewModel
-import ra53n.scan_thing.ui.theme.ScanThingTheme
+import ra53n.scan_thing.ui_kit.theme.ScanThingTheme
 import java.io.File
 
 @AndroidEntryPoint

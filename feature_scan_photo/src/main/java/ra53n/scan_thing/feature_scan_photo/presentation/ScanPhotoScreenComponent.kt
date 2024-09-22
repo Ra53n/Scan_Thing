@@ -34,6 +34,7 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
@@ -41,7 +42,9 @@ import ra53n.scan_thing.core.flux.Fail
 import ra53n.scan_thing.core.flux.IComposableComponent
 import ra53n.scan_thing.core.flux.Pending
 import ra53n.scan_thing.core.flux.Success
+import ra53n.scan_thing.feature_scan_photo.R
 import ra53n.scan_thing.feature_scan_photo.domain.Label
+import ra53n.scan_thing.ui_kit.screens.ErrorScreen
 
 class ScanPhotoScreenComponent(
     override val controller: ScanPhotoController,
@@ -55,7 +58,10 @@ class ScanPhotoScreenComponent(
             controller.dispatch(ScanPhotoAction.ScanPhoto(photoUri))
         }
 
-        ScanPhotoScreen(controller = controller, state = state)
+        ScanPhotoScreen(
+            controller = controller,
+            state = state
+        )
     }
 }
 
@@ -113,7 +119,7 @@ fun ScanPhotoScreen(
                             modifier = Modifier
                                 .align(Alignment.CenterHorizontally)
                                 .padding(top = 30.dp),
-                            text = "Объекты не найдены",
+                            text = stringResource(R.string.objects_not_found),
                             style = MaterialTheme.typography.titleLarge,
                             textAlign = TextAlign.Center,
                             color = Color.White
@@ -153,7 +159,9 @@ fun ScanPhotoScreen(
             }
 
             is Fail -> {
-
+                ErrorScreen {
+                    controller.dispatch(ScanPhotoAction.ScanPhoto(state.value.photoUri))
+                }
             }
         }
     }
@@ -168,7 +176,7 @@ fun SelectableTextButton(
     Text(
         modifier = Modifier
             .background(
-                color = if (isSelected) Color.LightGray else Color.DarkGray,
+                color = if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.secondary,
                 shape = RoundedCornerShape(16.dp)
             )
             .clickable(onClick = onClick)
