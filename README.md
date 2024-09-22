@@ -17,10 +17,28 @@ ScanThing - это Android-приложение, которое использу
 
 ## Использование
 1) Запустите приложение и предоставьте разрешение на использование камеры.
-![image](https://github.com/user-attachments/assets/54b77295-aa42-4d40-b1b4-040a5b9d040d)
+
+![image](https://github.com/user-attachments/assets/d8e3e425-57c3-4c08-a21b-a3783338c29c)
+
 2) Сделайте фотографию объекта, который вы хотите отсканировать.
-![image](https://github.com/user-attachments/assets/2d382491-88c9-4b1a-ab10-b7693a9e39a0)
+
+![image](https://github.com/user-attachments/assets/51f2184b-c476-4c25-beb6-1348eb4da13d)
+
 3) Приложение проанализирует изображение и предоставит теги распознанных объектов.
-![image](https://github.com/user-attachments/assets/d021c796-b888-4832-ac4d-5f5e943a665c)
+
+![image](https://github.com/user-attachments/assets/8c908253-f7ca-4aa9-be01-a99a737f300b)
+
 4) Нажмите на выделенный тег, чтобы увидеть распознанный объект.
-![image](https://github.com/user-attachments/assets/6c33b305-8736-45de-8643-eb40e2ac636c)
+
+![image](https://github.com/user-attachments/assets/1a9b82bf-5473-48f9-bae3-9f200070f87c)
+
+![image](https://github.com/user-attachments/assets/c7711fca-8d25-493c-8c86-447c29575d46)
+
+![image](https://github.com/user-attachments/assets/7571f67e-7341-420f-996d-f5827adb3cb2)
+
+![image](https://github.com/user-attachments/assets/aa7df79d-59b8-45cb-a931-2ee2b6736ac3)
+
+
+
+
+
